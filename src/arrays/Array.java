@@ -302,4 +302,105 @@ public class Array implements IArrey {
         }
         return result;
     }
+
+    public int maximumConsecutiveOnes(int[] array) {
+        int result = 0;
+        int current = 0;
+        for(int i=0; i<array.length; i++) {
+            if(array[i] == 0) {
+                current = 0;
+            } else {
+                current++;
+                result = Math.max(current, result);
+            }
+        }
+        return result;
+    }
+
+    public int maxSubArray(int[] array) {
+        int result = 0;
+        int maxEnding = array[0];
+        for(int i=1; i<array.length; i++) {
+            maxEnding = Math.max(maxEnding+array[i], array[i]);
+            result = Math.max(maxEnding, result);
+        }
+        return result;
+    }
+
+    public int longestEvenOddSubArray(int[] array) {
+        int result = 1;
+        int current = 1;
+        for(int i=1; i<array.length; i++) {
+            if((array[i]%2 == 0 && array[i-1]%2 != 0) ||
+                    (array[i]%2 != 0 && array[i-1]%2 == 0)) {
+                current++;
+                result = Math.max(result, current);
+            } else {
+                current = 1;
+            }
+        }
+        return result;
+    }
+
+
+    public int maximumSubArrayNormal(int[] array) {
+           int tempResult = 1;
+           int tempMaxEnding = array[0];
+           for(int i=1; i<array.length; i++) {
+               tempMaxEnding = Math.max(tempMaxEnding+array[i], array[i]);
+               tempResult = Math.max(tempResult, tempMaxEnding);
+           }
+           return tempResult;
+    }
+    public int maximumCircularSubArray(int[] array) {
+        int normal_max = maximumSubArrayNormal(array);
+        if(normal_max < 0) {
+            return normal_max;
+        }
+        //reverse the array
+        int max_sum = 0;
+        for(int i=0; i<array.length; i++) {
+            max_sum += array[i];
+            array[i] = -array[i];
+        }
+        int circular_max = max_sum + maximumSubArrayNormal(array);
+        return Math.max(normal_max, circular_max);
+    }
+
+    public int findCandidateForMajority(int[] array) {
+        int result = 0; int count = 1;
+        for(int i=1; i<array.length; i++) {
+            if(array[result] == array[i]) {
+                count++;
+            } else {
+                count --;
+            }
+
+            if(count ==0) {
+                result = i;
+                count = 1;
+            }
+        }
+        return result;
+    }
+
+    public int checkIfCandidateIsActuallyAMajority(int[] array, int result) {
+        int count = 0;
+        for(int i=0; i<array.length; i++) {
+            if(array[result] == array[i]) {
+                count++;
+            }
+        }
+        if(count < array.length/2) {
+            result = -1;
+        }
+        return array[result];
+    }
+
+    public int findMajority(int[] array) {
+        // find the candidate
+        int candidate = findCandidateForMajority(array);
+        int result = checkIfCandidateIsActuallyAMajority(array, candidate);
+        return result;
+    }
 }

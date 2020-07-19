@@ -52,4 +52,14 @@ public interface IArrey {
     int maxProfitNew(int[] price);
 
     int trappingWater(int[] array);
+
+    int maximumConsecutiveOnes(int[] array);
+
+    int maxSubArray(int[] array);
+
+    int longestEvenOddSubArray(int[] array);
+
+    int maximumCircularSubArray(int[] array);
+
+    int findMajority(int[] array);
 }

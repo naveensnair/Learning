@@ -1,5 +1,8 @@
 import arrays.Array;
 import arrays.IArrey;
+import linkedlist.CustomLinkedList;
+import searching.BinarySearch;
+import searching.ISearch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +10,9 @@ import java.util.Arrays;
 public class Datastructures {
 
     public static void main(String[] args) {
-        arrayFunctions();
+        //arrayFunctions();
+        //searchFunctions();
+        linkedListFunctions();
     }
 
     private static void arrayFunctions() {
@@ -81,6 +86,51 @@ public class Datastructures {
         int[] water = new int[]{5,0,6,2,3};
         int capacity = array.trappingWater(water);
         System.out.println("Capacity remaining to fill : " + capacity);
+
+        int[] booleanArray = new int[]{1,0,1,1,1,1,0,1,1,1};
+        int maxCountOfOne = array.maximumConsecutiveOnes(booleanArray);
+        System.out.println("Maximum consecutive ones : " + maxCountOfOne);
+
+        int[] kandanAlgoArray = new int[]{-3,8,-2,4,-5,6};
+        int maxOfSubArray = array.maxSubArray(kandanAlgoArray);
+        System.out.println("Maximum subarray count : " + maxOfSubArray);
+
+        int[] oddEvenArray = new int[]{5,10,20,6,3,8};
+        int maxOddEvenCombination = array.longestEvenOddSubArray(oddEvenArray);
+        System.out.println("Maximum possible combination : " + maxOddEvenCombination);
+
+        int[] normalArray = new int[]{10,5,-5};
+        int maxCircularSubArray = array.maximumCircularSubArray(normalArray);
+        System.out.println("Maximum circular subarray : " + maxCircularSubArray);
+
+        int[] majorityArray = new int[]{8,3,4,8,8,8,9,3,8};
+        int majority = array.findMajority(majorityArray);
+        System.out.println("Majority from array : " + majority);
+    }
+    private static void searchFunctions() {
+        ISearch search = new BinarySearch();
+
+        int[] array = new int[]{10,20,30,40,50,60,70,80};
+        int index = search.findElement(array, 20);
+        System.out.println("Index of the searched element : " + index);
+
+        int recurIndex = search.findElementRecursive(array, 0, array.length-1, 60);
+        System.out.println("Index of searched element recursively : " + recurIndex);
+
+        int[] newArray = new int[]{10,15,20,30,20,50,20};
+        int findIndexOfFirstOccurence = search.findFirstOccurence(newArray, 20);
+        System.out.println("First occurence : " + findIndexOfFirstOccurence);
     }
 
+    private static void linkedListFunctions() {
+        CustomLinkedList linkedList = new CustomLinkedList();
+        linkedList.insertBegin(20);
+        linkedList.insertBegin(10);
+        linkedList.insertBegin(5);
+        linkedList.insertAtEnd(30);
+        linkedList.middleOfLinkedListNaive();
+        linkedList.middleLinkedListBest();
+        linkedList.printLinkedList();
+        linkedList.printNthFromEnd(2);
+    }
 }
