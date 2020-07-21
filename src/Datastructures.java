@@ -1,18 +1,29 @@
 import arrays.Array;
 import arrays.IArrey;
+import hashing.CustomHashMap;
+import hashing.CustomHashSet;
 import linkedlist.CustomLinkedList;
+import queue.CustomQueue;
+import queue.StackQueue;
 import searching.BinarySearch;
 import searching.ISearch;
+import stack.CustomStack;
+import stack.LinkedListStack;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Queue;
 
 public class Datastructures {
 
     public static void main(String[] args) {
         //arrayFunctions();
         //searchFunctions();
-        linkedListFunctions();
+        //linkedListFunctions();
+        //stackFunctionalities();
+        //queueFunctionalities();
+        HashingFunctionalities();
     }
 
     private static void arrayFunctions() {
@@ -130,7 +141,56 @@ public class Datastructures {
         linkedList.insertAtEnd(30);
         linkedList.middleOfLinkedListNaive();
         linkedList.middleLinkedListBest();
-        linkedList.printLinkedList();
-        linkedList.printNthFromEnd(2);
+        //linkedList.reverseLinkedList();
+        linkedList.reverseLinkedListInOneTraversal();
+        //linkedList.printLinkedList();
+        //linkedList.printNthFromEnd(2);
+    }
+
+    private static void stackFunctionalities() {
+        CustomStack stack = new CustomStack();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.push(40);
+        stack.push(50);
+        System.out.println("Top element is : " + stack.pop());
+        LinkedListStack llStack = new LinkedListStack();
+        llStack.push(20);
+        llStack.push(50);
+        llStack.push(70);
+        llStack.pop();
+        boolean isBalanced = stack.balancedParanthesisWithAString("{[()]}");
+        System.out.println("isBalanced : " + isBalanced);
+
+    }
+
+    private static void queueFunctionalities() {
+        /*CustomQueue queue = new CustomQueue(5);
+        queue.enQueue(10);
+        queue.enQueue(20);
+        queue.enQueue(30);
+        queue.enQueue(50);
+        System.out.println("Front is : " + queue.getFront());
+        System.out.println("Deque is : " + queue.deQueue());*/
+        StackQueue queue = new StackQueue();
+        queue.push(5);
+        queue.push(10);
+        queue.push(15);
+        queue.push(25);
+        System.out.println("expected 25 since pop is used : " + queue.pop());
+    }
+
+    private static void HashingFunctionalities() {
+       /* CustomHashSet hashSet = new CustomHashSet();
+        hashSet.addNames();
+        boolean isNameFound = hashSet.isNameFound("Naveen");
+        System.out.println("Is name found : " + isNameFound);*/
+
+
+        CustomHashMap hashMap = new CustomHashMap();
+        hashMap.addNames();
+
+
     }
 }

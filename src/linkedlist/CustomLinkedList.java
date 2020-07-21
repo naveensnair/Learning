@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.ArrayList;
+
 public class CustomLinkedList {
     Node head;
     public void insertBegin(int value) {
@@ -73,5 +75,30 @@ public class CustomLinkedList {
             current = current.next;
         }
         System.out.println("Data from " + n + " position is :" + current.data);
+    }
+
+    public void reverseLinkedList() {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        if(head == null) {
+            return;
+        }
+        for(Node current = head; current!= null; current=current.next) {
+            arrayList.add(current.data);
+        }
+        for(Node current = head; current != null; current = current.next) {
+            current.data = arrayList.remove(arrayList.size()-1);
+        }
+    }
+
+    public void reverseLinkedListInOneTraversal(){
+        Node current = head;
+        Node previous = null;
+        while (current != null) {
+            Node next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        System.out.println(previous.data);
     }
 }
