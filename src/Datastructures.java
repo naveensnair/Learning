@@ -7,8 +7,12 @@ import queue.CustomQueue;
 import queue.StackQueue;
 import searching.BinarySearch;
 import searching.ISearch;
+import sorting.ArraysSort;
+import sorting.ComparableSorting;
+import sorting.ComparatorSorting;
 import stack.CustomStack;
 import stack.LinkedListStack;
+import strings.StringFunctions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +27,10 @@ public class Datastructures {
         //linkedListFunctions();
         //stackFunctionalities();
         //queueFunctionalities();
-        HashingFunctionalities();
+        //HashingFunctionalities();
+        //Sorting();
+        StringFun();
+
     }
 
     private static void arrayFunctions() {
@@ -190,7 +197,20 @@ public class Datastructures {
 
         CustomHashMap hashMap = new CustomHashMap();
         hashMap.addNames();
+    }
 
+    private static void Sorting() {
+        ArraysSort sort = new ArraysSort();
+        sort.arraySorting();
+        ComparableSorting cs = new ComparableSorting();
+        cs.sortingUsingComparable();
+        ComparatorSorting css = new ComparatorSorting();
+        css.customComparator();
+    }
 
+    private static void StringFun(){
+        StringFunctions stringFunctions = new StringFunctions();
+        String str = stringFunctions.reverseString("All the best");
+        System.out.println(str);
     }
 }
