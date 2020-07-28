@@ -3,6 +3,8 @@ import arrays.IArrey;
 import hashing.CustomHashMap;
 import hashing.CustomHashSet;
 import linkedlist.CustomLinkedList;
+import practise.ThreeSum;
+import practise.TwoSum;
 import queue.CustomQueue;
 import queue.StackQueue;
 import searching.BinarySearch;
@@ -14,10 +16,7 @@ import stack.CustomStack;
 import stack.LinkedListStack;
 import strings.StringFunctions;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Queue;
+import java.util.*;
 
 public class Datastructures {
 
@@ -29,7 +28,9 @@ public class Datastructures {
         //queueFunctionalities();
         //HashingFunctionalities();
         //Sorting();
-        StringFun();
+        //StringFun();
+        //twoSuProblems();
+        threeSumProblem();
 
     }
 
@@ -212,5 +213,29 @@ public class Datastructures {
         StringFunctions stringFunctions = new StringFunctions();
         String str = stringFunctions.reverseString("All the best");
         System.out.println(str);
+    }
+
+    private static void twoSuProblems() {
+        TwoSum twoSum = new TwoSum();
+        int[] array = new int[]{1,0,-1,2,-2};
+        ArrayList<ArrayList<Integer>> combinations = twoSum.findTwoSum(array, 0);
+        for(ArrayList<Integer> originalArray : combinations) {
+            for (Integer integer : originalArray) {
+                System.out.println(integer);
+            }
+        }
+    }
+
+    private static void threeSumProblem() {
+        ThreeSum threeSum = new ThreeSum();
+        int[] array = new int[]{7, 12, 3, 1, 2, -6, 5, -8, 6};
+        ArrayList<ArrayList<Integer>> combinations = threeSum.findThreeSum(array, 0);
+        for(ArrayList<Integer> originalArray : combinations) {
+            System.out.println("\n[");
+            for(Integer integer : originalArray) {
+                System.out.print(integer + " ");
+            }
+            System.out.print("]");
+        }
     }
 }
