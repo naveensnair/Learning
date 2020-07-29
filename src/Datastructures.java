@@ -3,8 +3,7 @@ import arrays.IArrey;
 import hashing.CustomHashMap;
 import hashing.CustomHashSet;
 import linkedlist.CustomLinkedList;
-import practise.ThreeSum;
-import practise.TwoSum;
+import practise.*;
 import queue.CustomQueue;
 import queue.StackQueue;
 import searching.BinarySearch;
@@ -30,7 +29,15 @@ public class Datastructures {
         //Sorting();
         //StringFun();
         //twoSuProblems();
-        threeSumProblem();
+        //threeSumProblem();
+        //geeksIPAddress();
+        //ipAddressGenerator();
+        //continuousSubArray();
+        //triplets();
+        //kandanes();
+        //missingNumberInArray();
+        //rotateLinkedList();
+        rotateCustomLinkedList();
 
     }
 
@@ -237,5 +244,57 @@ public class Datastructures {
             }
             System.out.print("]");
         }
+    }
+
+    private static void geeksIPAddress() {
+        GeekIpAdresses ipAdresses = new GeekIpAdresses();
+        System.out.println(ipAdresses.restoreIpAddresses("25525511135").toString());
+    }
+
+    private static void ipAddressGenerator() {
+        IPAddressGenerator ipAddressGenerator = new IPAddressGenerator();
+        System.out.println(ipAddressGenerator.generateIpAddress("25525511135").toString());
+    }
+
+    private static void continuousSubArray() {
+        ContinuousSubArray subArray = new ContinuousSubArray();
+        subArray.findContinuousSubArray(new int[]{1,0,2,5,1,6,3}, 9);
+    }
+
+    private static void triplets() {
+        Triplets triplets = new Triplets();
+        Map<Integer, ArrayList<Integer>> newTriplets = triplets.findTriplets(new int[]{1,2,3,5,8,0,8});
+        for(ArrayList<Integer> integers : newTriplets.values()) {
+            System.out.println(integers.toString());
+        }
+    }
+
+    private static void kandanes(){
+        KandanesAlgorithm kandanesAlgorithm = new KandanesAlgorithm();
+        int max = kandanesAlgorithm.finMaxContinuousSubArray(new int[] {-2, -3, 4, -1, -2, 1, 5, -3});
+        System.out.println(max);
+    }
+
+    private static void missingNumberInArray(){
+        MissingElementInArray missingElementInArray = new MissingElementInArray();
+        int num = missingElementInArray.findMissingElement(new int[]{1,2,3,4,5,6,7,8,10});
+        System.out.println(num);
+    }
+
+    private static void rotateLinkedList() {
+        RotateLinkedListNTimes rotateLinkedListNTimes = new RotateLinkedListNTimes();
+        rotateLinkedListNTimes.rotate(2);
+    }
+
+    private static void rotateCustomLinkedList() {
+        CustomLlinkedListRotate customLlinkedListRotate = new CustomLlinkedListRotate();
+        customLlinkedListRotate.insertBegin(10);
+        customLlinkedListRotate.insertBegin(20);
+        customLlinkedListRotate.insertBegin(30);
+        customLlinkedListRotate.insertBegin(40);
+        customLlinkedListRotate.insertBegin(50);
+        //customLlinkedListRotate.insertBegin(60);
+        customLlinkedListRotate.printTheLinkedList();
+        customLlinkedListRotate.rotateNTimes(2);
     }
 }
